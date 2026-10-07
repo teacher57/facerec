@@ -14,7 +14,7 @@ Requirements: Python 3 (e.g. `brew install python`) and git.
 
 ```bash
 # 1. Get the code
-git clone https://github.com/<owner>/face_recognition.git
+git clone https://github.com/teacher57/facerec.git
 cd face_recognition
 
 # 2. Install everything: Python environment, OpenCV, both models, and the `facerec` command
@@ -42,7 +42,7 @@ sudo apt update
 sudo apt install -y git
 
 # 2. Get the code
-git clone https://github.com/<owner>/face_recognition.git
+git clone https://github.com/teacher57/facerec.git
 cd face_recognition
 
 # 3. Install everything. On a Pi, this also installs picamera2 with apt.
