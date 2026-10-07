@@ -1,0 +1,9 @@
+# Created by setup.sh
+.venv/
+models/
+
+# Your face data and run logs: never commit these
+known_faces.npz
+logs/
+
+__pycache__/
