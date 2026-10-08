@@ -7,3 +7,4 @@ known_faces.npz
 logs/
 
 __pycache__/
+.DS_Store
