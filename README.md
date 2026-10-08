@@ -10,9 +10,9 @@ Find faces, remember people, and recognize them live from a camera. It runs on a
 
 ## Demo
 
-![Serj Tankian recognized next to two strangers](docs/demo.jpg)
+![Serj Tankian recognized in a green box next to a stranger in a red box](docs/demo.jpg)
 
-Serj Tankian was learned from 4 other freely licensed photos of him (see below) and recognized with a match score of **0.62**; anything at or above 0.363 counts as a match. The two other people weren't enrolled, so they're labeled `stranger` with their face-detection score. The numbers above each box are face-detection scores. Default settings were used; the photo was enlarged 2× because it's small.
+Serj Tankian was learned from 4 other freely licensed photos of him (see below) and recognized with a match score of **0.70**, shown in a **green** box with his name; anything at or above 0.363 counts as a match. The other person wasn't enrolled (match score 0.20), so he's a stranger: a **red** box with no name. The numbers above each box are face-detection scores. Default settings were used.
 
 Serj's face was only used to make this picture and isn't stored in the repo or in any `known_faces.npz`.
 
@@ -21,7 +21,7 @@ Recognition depends on photo quality. Small faces, faces partly covered (e.g. by
 <details>
 <summary>Photo credits</summary>
 
-- Demo photo: [George Radanovich with Serj Tankian and John Dolmayan](https://commons.wikimedia.org/wiki/File:George_Radanovich_with_Serj_Tankian_and_John_Dolmayan.jpg), Office of Congressman George Radanovich, public domain. Boxes and labels added by facerec.
+- Demo photo: [Devin Nunes with Serj Tankian](https://commons.wikimedia.org/wiki/File:Devin_Nunes_with_Serj_Tankian.jpg), Office of Congressman Devin Nunes, public domain. Resized to 1200 px wide; boxes and labels added by facerec.
 - Photos used to learn Serj's face (not included in this repo), all from Wikimedia Commons:
   [Serj Tankian small.jpg](https://commons.wikimedia.org/wiki/File:Serj_Tankian_small.jpg) (Dark Apostrophe, CC BY-SA 3.0),
   [Serj Tankian Spirit of Burgas Bulgaria 2010 cropped.jpg](https://commons.wikimedia.org/wiki/File:Serj_Tankian_Spirit_of_Burgas_Bulgaria_2010_cropped.jpg) (Vladimir Petkov, CC BY-SA 2.0),
@@ -141,7 +141,7 @@ At least one of `-v` or `-j` is required.
 
 | Command | What it does |
 |---|---|
-| `facerec test -v` | Shows the camera in a window with boxes, face scores, and names. |
+| `facerec test -v` | Shows the camera in a window. Known people get a **green** box with their name and match score; strangers get a **red** box. The number above each box is the face-detection score. |
 | `facerec test -j` | No window. Calls `job.py` and **prints every call** with a timestamp and the faces it received. |
 | `facerec test -v -j` | Both: window plus printed job calls. |
 

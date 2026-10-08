@@ -20,11 +20,19 @@ def find_faces(image):
     return faces if faces is not None else []
 
 
-def draw_boxes(image, faces):
-    """Draw a green box around each face with its confidence score above it, in place."""
-    for face in faces:
+GREEN = (0, 255, 0)  # OpenCV colors are (blue, green, red)
+RED = (0, 0, 255)
+
+
+def draw_boxes(image, faces, colors=None):
+    """Draw a box around each face with its confidence score above it, in place.
+
+    colors: one (B, G, R) color per face; all green if left out.
+    """
+    for i, face in enumerate(faces):
+        color = colors[i] if colors else GREEN
         x, y, w, h = face[:4].astype(int)
         score = face[14]
-        cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
+        cv2.rectangle(image, (x, y), (x + w, y + h), color, 2)
         cv2.putText(image, f"{score:.2f}", (x, max(y - 8, 15)),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.6, color, 2)

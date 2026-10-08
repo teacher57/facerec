@@ -7,20 +7,25 @@ from pathlib import Path
 
 import cv2
 
-from face_detector import draw_boxes, find_faces
+from face_detector import GREEN, RED, draw_boxes, find_faces
 from face_recognizer import identify, load_known_faces
 
 LOGS_DIR = Path(__file__).parent / "logs"
 
 
-def draw_labels(frame, faces, results):
-    """Write "name probability" just below the bottom-left corner of each box."""
+def draw_faces(frame, faces, results):
+    """Box every face: known people green with "name probability" below the box,
+    strangers red with only their face score above it."""
+    colors = [RED if name == "stranger" else GREEN for name, _ in results]
+    draw_boxes(frame, faces, colors)
     frame_height = frame.shape[0]
     for face, (name, probability) in zip(faces, results):
+        if name == "stranger":
+            continue
         x, y, w, h = face[:4].astype(int)
         text_y = min(y + h + 22, frame_height - 5)
         cv2.putText(frame, f"{name} {probability:.2f}", (x, text_y),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.7, GREEN, 2)
 
 
 def _run_job(job_function, faces):
@@ -100,8 +105,7 @@ def watch(camera, job_module, rate=5, display=False, log=False, run_job=True, pr
                     last_job = now
 
             if display:
-                draw_boxes(frame, faces)
-                draw_labels(frame, faces, results)
+                draw_faces(frame, faces, results)
                 cv2.imshow("Faces", frame)
                 cv2.waitKey(1)  # lets the window refresh
     except KeyboardInterrupt:
