@@ -10,7 +10,7 @@ Find faces, remember people, and recognize them live from a camera. It runs on a
 
 ## Demo
 
-![Serj Tankian recognized in a green box next to a stranger in a red box](docs/demo.jpg)
+![Serj Tankian recognized in a green box next to a stranger in a red box](docs/demo-serj-green.jpg)
 
 Serj Tankian was learned from 4 other freely licensed photos of him (see below) and recognized with a match score of **0.70**, shown in a **green** box with his name; anything at or above 0.363 counts as a match. The other person wasn't enrolled (match score 0.20), so he's a stranger: a **red** box with no name. The numbers above each box are face-detection scores. Default settings were used.
 
