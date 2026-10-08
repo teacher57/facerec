@@ -8,6 +8,30 @@ Find faces, remember people, and recognize them live from a camera. It runs on a
 
 ---
 
+## Demo
+
+![Serj Tankian recognized next to two strangers](docs/demo.jpg)
+
+Serj Tankian was learned from 4 other freely licensed photos of him (see below) and recognized with a match score of **0.62**; anything at or above 0.363 counts as a match. The two other people weren't enrolled, so they're labeled `stranger` with their face-detection score. The numbers above each box are face-detection scores. Default settings were used; the photo was enlarged 2× because it's small.
+
+Serj's face was only used to make this picture and isn't stored in the repo or in any `known_faces.npz`.
+
+Recognition depends on photo quality. Small faces, faces partly covered (e.g. by a microphone), and strong stage lighting can make a known person show up as `stranger`.
+
+<details>
+<summary>Photo credits</summary>
+
+- Demo photo: [George Radanovich with Serj Tankian and John Dolmayan](https://commons.wikimedia.org/wiki/File:George_Radanovich_with_Serj_Tankian_and_John_Dolmayan.jpg), Office of Congressman George Radanovich, public domain. Boxes and labels added by facerec.
+- Photos used to learn Serj's face (not included in this repo), all from Wikimedia Commons:
+  [Serj Tankian small.jpg](https://commons.wikimedia.org/wiki/File:Serj_Tankian_small.jpg) (Dark Apostrophe, CC BY-SA 3.0),
+  [Serj Tankian Spirit of Burgas Bulgaria 2010 cropped.jpg](https://commons.wikimedia.org/wiki/File:Serj_Tankian_Spirit_of_Burgas_Bulgaria_2010_cropped.jpg) (Vladimir Petkov, CC BY-SA 2.0),
+  [Serj Tankian in Armenia, 2011.jpg](https://commons.wikimedia.org/wiki/File:Serj_Tankian_in_Armenia,_2011.jpg) (Lgrigoryan, CC BY-SA 3.0),
+  [Serj Tankian performing 2026.png](https://commons.wikimedia.org/wiki/File:Serj_Tankian_performing_2026.png) (Californipedia, CC0).
+
+</details>
+
+---
+
 ## Setup on a Mac
 
 Requirements: Python 3 (e.g. `brew install python`) and git.
